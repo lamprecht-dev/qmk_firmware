@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   KC_TAB ,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,   KC_K,    KC_L,   KC_P,     KC_ENT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  OSM(MOD_LALT),KC_Z,KC_X,    KC_C,    KC_V,    KC_B,  KC_MY_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, OSM(MOD_LGUI),
+  OSM(MOD_LALT),KC_Z,KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, OSM(MOD_LGUI),
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
          MO(_FKEYS), XXXXXXX, XXXXXXX , KC_SPC, OSM(MOD_LCTL), OSM(MOD_RSFT), TO(_L2),  TO(_L3), OSM(MOD_RALT), KC_APP
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   KC_TAB ,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,   KC_K,    KC_L,   KC_P,     KC_ENT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_LALT, KC_Z,KC_X,    KC_C,    KC_V,    KC_B,  KC_MY_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LGUI,
+  KC_LALT, KC_Z,KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LGUI,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
           MO(_FKEYS), XXXXXXX, XXXXXXX , KC_SPC, KC_LCTL, KC_RSFT, TO(_L2),  TO(_L3), KC_RALT, KC_APP
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
@@ -188,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* L3 / Navigation
  *
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  ESC |      |      |      |      |      |                    |GAMING|      |      |      |      |  DEL |
+ * |  ESC |      |      |      |      |      |                    |      |      |      |      |      |  DEL |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | CAPS |      |      |      |      |      |                    |  PUP | HOME |  END |PrintS|  INS | BSPC |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -201,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            `----------------------------------'           '------''---------------------------'
  */
 [_L3] = LAYOUT(
-    KC_HARD_ESC, XXXXXXX,      XXXXXXX,        XXXXXXX, KC_MAKEBASE1, KC_MAKEBASE2,         TO(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,
+    KC_HARD_ESC, XXXXXXX,      XXXXXXX,        XXXXXXX, KC_MAKEBASE1, KC_MAKEBASE2,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,
     KC_CAPS_LOCK, XXXXXXX,      XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PGUP, KC_HOME, KC_END , KC_PSCR, KC_INS , _______,
     _______, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX,                   KC_LEFT, KC_DOWN, KC_UP , KC_RIGHT, KC_PAUSE, _______,
     KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LGUI,
@@ -209,29 +209,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
 
-/*
- * GAMING V1
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  ESC |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | BASE |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |  t   |   q  |   w  |   e  |   r  |                    |   y  |   u  |   i  |   o  |   p  | BSPC |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | SHIFT|   g  |   a  |   s  |   d  |   f  |-------.    ,-------|   h  |   j  |   k  |   l  |   ;  | ENT  |
- * |------+------+------+------+------+------| MUTE  |    |DISCORD|------+------+------+------+------+------|
- * | ALT  |   b  |   z  |   x  |   c  |   v  |-------|    |-------|   n  |   m  |   ,  |   .  |   /  |  gui |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | fkeys| CAPS  |  `   |SPACE | / CTL  /       \  SFT \  |  L2  |  L3  |   '  |Context|
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *            `----------------------------------'           '------''---------------------------'
- */
-[_GAMING] = LAYOUT(
-         KC_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                 KC_6,   KC_7,   KC_8,    KC_9,    KC_0,  KC_BASE,
-         KC_TAB,  KC_T,  KC_Q,   KC_W,   KC_E,    KC_R,                     KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC,
-         KC_LSFT, KC_G,  KC_A,   KC_S,   KC_D,    KC_F,                      KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN,  KC_ENT,
-         KC_LALT, KC_B,   KC_Z,   KC_X,   KC_C,    KC_V,  _______,  _______,KC_N,   KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LGUI,
-                   _______, KC_CAPS_LOCK, KC_GRV, KC_SPC, KC_LCTL, _______, TO(_L2),  TO(_L3), KC_QUOT, _______
-
-    ),
 /*
  *
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -420,15 +397,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-             register_code(KC_LCTL);
-             register_code(KC_F14);
-             unregister_code(KC_LCTL);
-             unregister_code(KC_F14);
+            tap_code(KC_VOLD);
         } else {
-             register_code(KC_LCTL);
-             register_code(KC_F13);
-             unregister_code(KC_LCTL);
-             unregister_code(KC_F13);
+            tap_code(KC_VOLU);
         }
     }
     return true;
